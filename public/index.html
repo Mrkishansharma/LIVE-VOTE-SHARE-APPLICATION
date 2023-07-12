@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIVE VOTE SHARE APPLICATION</title>
+
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+
+    <style>
+        #container{
+            display: flex;
+            border: 1px solid red;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            border-radius: 5px;
+        }
+        .left{
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        .right{
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right > div{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            border: 1px solid red;
+            border-radius: 5px;
+            border-radius: 5px;
+
+        }
+
+        input, select, button{
+            width: 50%;
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        button{
+            border-radius: 5px;
+            background-color: black;
+            color: aqua;
+        }
+        button:hover{
+            border: 1px solid black;
+            color: black;
+            background-color: transparent;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="left">
+            <input type="text" placeholder="enter voter id here" id="voterID">
+            <select id="party">
+                <option value=""> Select Party </option>
+                <option value="Party-A"> Party - A </option>
+                <option value="Party-B"> Party - B </option>
+                <option value="Party-C"> Party - C </option>
+            </select>
+
+            <button onclick="handleVote()"> Vote </button>
+        </div>
+
+        <div class="right">
+            <div>
+                <h1>Party A : </h1> <h1 id="aVote">0 %</h1>
+            </div>
+            <div>
+                <h1>Party B : </h1> <h1 id="bVote">0 %</h1>
+                
+            </div>
+            <div>
+                <h1>Party C : </h1> <h1 id="cVote">0 %</h1>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="index.js"></script>
